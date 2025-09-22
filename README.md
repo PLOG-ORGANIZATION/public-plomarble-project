@@ -17,7 +17,7 @@
 - 1인 개발자로서 **기획 → 개발 → 배포** 전 과정을 직접 수행  
 - 현재 **iOS 앱스토어**에 배포 완료  
 
-👉 [App Store 바로가기](https://apps.apple.com/app/plomarble/id6752662902)
+👉 [App Store 바로가기](https://apps.apple.com/kr/app/id6752662902)
 
 <p align="center">
   <img src="assets/ plomarble_1.png" alt="스크린샷1" width="250" height="300" />
