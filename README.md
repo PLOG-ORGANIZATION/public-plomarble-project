@@ -7,7 +7,7 @@ EKS 기반 **Kubernetes 프로젝트**
 
 ## 📑 목차
 1. [개요](#개요)
-2. [주요 feature 구성](#주요_feature_구성)
+2. [주요 feature 구성](#feature)
 3. [플랫폼 아키텍처](#플랫폼_아키텍처)
 4. [배포 및 운영전략 ](#배포-eks)
 5. [향후 개선사항](#향후-개선사항)
@@ -31,7 +31,7 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 ---
 
-## 주요_feature_구성
+## feature
 
 - **[ server ]**
   - **모놀리식 API 서비스** + **추천 서비스**를 Ingress로 라우팅
@@ -50,6 +50,10 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 ## 플랫폼_아키텍처
 
+<img width="994" height="695" alt="스크린샷 2025-09-22 오전 11 17 08" src="https://github.com/user-attachments/assets/530c6823-9f07-455d-a79a-4ea7aa896fd5" />
+
+
+[ platform architecture ]
 
 
 
