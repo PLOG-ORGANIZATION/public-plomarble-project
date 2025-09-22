@@ -21,9 +21,9 @@
   
 <p align="left">
   <img src="assets/qr.png" alt="스크린샷1" width="100" height="100" />
-  <img src="assets/ plomarble_1.png" alt="스크린샷1" width="250" height="300" />
-  <img src="assets/plomarble_2.png" alt="스크린샷2" width="250" height="300" />
-  <img src="assets/plomarble__3.png" alt="스크린샷3" width="250" height="300" />
+  <img src="assets/ plomarble_1.png" alt="스크린샷1" width="230" height="250" />
+  <img src="assets/plomarble_2.png" alt="스크린샷2" width="230" height="250" />
+  <img src="assets/plomarble__3.png" alt="스크린샷3" width="230" height="250" />
 </p>
 
 
