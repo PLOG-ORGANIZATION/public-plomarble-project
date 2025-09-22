@@ -25,8 +25,8 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 
 <img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/ plomarble_1.png" />
-<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/ plomarble_2.png" />
-<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/ plomarble_3.png" />
+<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/plomarble_2.png" />
+<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/plomarble_3.png" />
 
 ---
 
