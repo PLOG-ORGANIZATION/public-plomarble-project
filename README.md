@@ -1,5 +1,8 @@
 
-plomarble
+<p align="center" style=color>
+  <b><i>plomarble</i></b>
+</p>
+
 ---
 
 ## 📑 목차
