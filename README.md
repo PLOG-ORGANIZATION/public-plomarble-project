@@ -1,36 +1,5 @@
 
-```jsx
-import React from "react";
-import { Text, StyleSheet } from "react-native";
-
-export default function Logo({ color = "#000", style }) {
-  return (
-    <Text
-      style={[
-        styles.logoText,
-        { 
-          fontSize: getFontSize(),
-          color: color 
-        },
-        style
-      ]}
-    >
-      plomarble
-    </Text>
-  );
-}
-
-const styles = StyleSheet.create({
-  logoText: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
-
-function getFontSize() {
-  return 24; // 상황에 맞게 동적으로 조절 가능
-}
-```
+plomarble
 ---
 
 ## 📑 목차
