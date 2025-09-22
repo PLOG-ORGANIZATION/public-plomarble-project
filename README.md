@@ -12,7 +12,7 @@
 
 ---
 
-## 개요 
+## 📝 개요
 
 
 세상을 좀 더 깨끗하게 만드는 걷기 운동을 위해 추천하는 여행지를 제공하는 서비스 **"플로마블"**
@@ -26,11 +26,11 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 <img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/ plomarble_1.png" />
 <img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/plomarble_2.png" />
-<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/plomarble_3.png" />
+<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="assets/plomarble__3.png" />
 
 ---
 
-## feature
+## 💻 feature
 
 - **[ server ]**
   - **모놀리식 API 서비스** + **추천 서비스**를 Ingress로 라우팅
@@ -49,7 +49,7 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 
 
-## 플랫폼_아키텍처
+## 🏗 플랫폼_아키텍처
 
 <img width="994" height="695" alt="스크린샷 2025-09-22 오전 11 17 08" src="https://github.com/user-attachments/assets/530c6823-9f07-455d-a79a-4ea7aa896fd5" />
 
