@@ -1,7 +1,5 @@
-# plomarble
-플로마블 소개를 위한 repo
+<img width="300" height="300" alt="스크린샷 2025-09-22 오전 11 17 08" src="https://github.com/user-attachments/plo" />
 
-EKS 기반 **Kubernetes 프로젝트** 
 
 ---
 
