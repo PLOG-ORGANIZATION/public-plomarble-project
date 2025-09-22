@@ -26,7 +26,7 @@ EKS 기반 **Kubernetes 프로젝트**
 appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 
-[ plomarble splash ] ,  [ 이용 화면 ]
+,  [ 이용 화면 ]
 
 ---
 
