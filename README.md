@@ -1,4 +1,3 @@
-# 플로마블 (PloMarble)
 
 <p align="center">
   <img src="assets/ plomarble.png" alt="앱 메인 이미지" width="300" />
@@ -56,6 +55,7 @@
 </p>
 
 **구성 요약**
+
 1. 단일 노드 클러스터 내에서 **namespace**로 서비스 분리 (milvus, plog, cert 등)  
 2. 한국관광공사 정형 데이터를 가공 → **Milvus 벡터 DB(S3 기반)** 저장  
    - Airflow 파이프라인(local) + 포트 포워딩  
