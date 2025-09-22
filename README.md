@@ -56,9 +56,9 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 [ platform architecture ]
 
-👍 1. 단일 노드로 namespace를 구분하여 milvus, plog , cert 등을 구성함.
-👍 2. 한국 관광공사 정형데이터를 가공하여 milvus 벡터로 구성하는 Air-flow 파이프라인을 local에 구성 -> 포트 포워딩으로 milvusDB(s3)에 영속화
-👍 3. 추천 코스 리스트 구성시 text 임베딩을 위해 fasti api pod를 구성 -> FQDN을 활용해 다른 namespace간 통신
+👍 1. 단일 노드로 namespace를 구분하여 milvus, plog , cert 등을 구성함. <br />
+👍 2. 한국 관광공사 정형데이터를 가공하여 milvus 벡터로 구성하는 Air-flow 파이프라인을 local에 구성 -> 포트 포워딩으로 milvusDB(s3)에 영속화 <br />
+👍 3. 추천 코스 리스트 구성시 text 임베딩을 위해 fasti api pod를 구성 -> FQDN을 활용해 다른 namespace간 통신 <br />
 
 ## 개선사항
 
