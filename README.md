@@ -11,7 +11,7 @@
 
 ---
 
-## 📝 개요 <img src="assets/qr.png" text_align="right" alt="스크린샷1" width="100" height="100" />
+## 📝 개요
 세상을 더 깨끗하게 만드는 걷기 운동을 위해 **여행지를 추천하는 서비스** **"플로마블"**  
 
 - 1인 개발자로서 **기획 → 개발 → 배포** 전 과정을 직접 수행  
@@ -19,7 +19,8 @@
 
 👉 [App Store 바로가기](https://apps.apple.com/kr/app/id6752662902)
   
-<p align="center">
+<p align="left">
+  <img src="assets/qr.png" text_align="right" alt="스크린샷1" width="100" height="100" />
   <img src="assets/ plomarble_1.png" alt="스크린샷1" width="250" height="300" />
   <img src="assets/plomarble_2.png" alt="스크린샷2" width="250" height="300" />
   <img src="assets/plomarble__3.png" alt="스크린샷3" width="250" height="300" />
