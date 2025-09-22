@@ -18,7 +18,7 @@
 - 현재 **iOS 앱스토어**에 배포 완료  
 
 👉 [App Store 바로가기](https://apps.apple.com/kr/app/id6752662902)
-  <img src="assets/qr.png" alt="스크린샷1" width="100" height="100" />
+  <img src="assets/qr.png" text_align="right" alt="스크린샷1" width="100" height="100" />
 
 <p align="center">
   <img src="assets/ plomarble_1.png" alt="스크린샷1" width="250" height="300" />
