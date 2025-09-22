@@ -9,8 +9,7 @@ EKS 기반 **Kubernetes 프로젝트**
 1. [개요](#개요)
 2. [주요 feature 구성](#feature)
 3. [플랫폼 아키텍처](#플랫폼_아키텍처)
-4. [배포 및 운영전략 ](#배포-eks)
-5. [향후 개선사항](#향후-개선사항)
+4. [향후 개선사항](#개선사항)
 
 
 ---
@@ -55,7 +54,17 @@ appStore 링크: https://apps.apple.com/app/plomarble/id6752662902
 
 [ platform architecture ]
 
+👍 1. 단일 노드로 namespace를 구분하여 milvus, plog , cert 등을 구성함.
+👍 2. 한국 관광공사 정형데이터를 가공하여 milvus 벡터로 구성하는 Air-flow 파이프라인을 local에 구성 -> 포트 포워딩으로 milvusDB(s3)에 영속화
+👍 3. 추천 코스 리스트 구성시 text 임베딩을 위해 fasti api pod를 구성 -> FQDN을 활용해 다른 namespace간 통신
 
+## 개선사항
 
+-> 하고 싶었지만 과금 혹은 현재 도메인 볼륨에 맞지 않다고 판단한 내용입니다.
 
-
+1. 단일 노드가 아닌 az 구성에 따른 이중화 혹은 삼중화구성 -> 롤링 업데이트를 활용한 무중단배포
+2. milvus 파드 분리 및 다른 추가 워커노드 혹은 nas를 활용한 private 존 구성하여 캐시 pod 구성.
+3. gateway를 활용한 service discovery
+4. inferece server node 추가 -> 유저 행동기반 데이터를 축적하여 개인화된 추천 목록 제공 
+5. 모니터링 시스템 도입
+6. ci/cd flow 도입으로 배포 파이프라인 최적화
