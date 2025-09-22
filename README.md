@@ -1,5 +1,5 @@
 
-<p align="center" style=color>
+<p align="center">
   <b><i>plomarble</i></b>
 </p>
 
