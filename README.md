@@ -1,7 +1,5 @@
 
-<p align="center">
-  <b><i>#plomarble</i></b>
-</p>
+<h1 align="center">plomarble</h1>
 
 ---
 
