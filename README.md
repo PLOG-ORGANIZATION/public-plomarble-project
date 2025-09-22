@@ -20,7 +20,6 @@
 👉 [App Store 바로가기](https://apps.apple.com/kr/app/id6752662902)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/files/22457257/qr.pdf" />
   <img src="assets/ plomarble_1.png" alt="스크린샷1" width="250" height="300" />
   <img src="assets/plomarble_2.png" alt="스크린샷2" width="250" height="300" />
   <img src="assets/plomarble__3.png" alt="스크린샷3" width="250" height="300" />
