@@ -1,3 +1,4 @@
+
 ```jsx
 import React from "react";
 import { Text, StyleSheet } from "react-native";
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
 function getFontSize() {
   return 24; // 상황에 맞게 동적으로 조절 가능
 }
-
+```
 ---
 
 ## 📑 목차
