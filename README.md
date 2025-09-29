@@ -54,7 +54,7 @@
 </p>
 
 
-1. 단일 노드 클러스터 내에서 **namespace**로 서비스 분리 (milvus, plog, cert 등)  
+1. 단일 노드 환경에서 **namespace**를 활용해 서비스 분리 (milvus, plog, cert 등)  
 2. 한국관광공사 정형 데이터를 가공 → **Milvus 벡터 DB(S3 기반)** 저장  
    - Airflow 파이프라인(local) + 포트 포워딩  
 3. 추천 코스 생성 시 **FastAPI inference pod** 구성 → **FQDN 기반 네임스페이스 간 통신**
