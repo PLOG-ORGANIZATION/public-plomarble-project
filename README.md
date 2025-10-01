@@ -15,12 +15,11 @@
 세상을 더 깨끗하게 만드는 걷기 운동을 위해 **여행지를 추천하는 서비스** **"플로마블"**  
 
 - 1인 개발자로서 **기획 → 개발 → 배포** 전 과정을 직접 수행  
-- 현재 **iOS 앱스토어**에 배포 완료  
+- 현재 **iOS 앱스토어**에 배포 완료 but 공모전 일정 지연으로 인한 서비스 버전업 진행중
 
-👉 [App Store 바로가기](https://apps.apple.com/kr/app/id6752662902)
   
 <p align="left">
-  <img src="assets/qr.png" alt="스크린샷1" width="100" height="100" />
+  <!-- <img src="assets/qr.png" alt="스크린샷1" width="100" height="100" /> -->
   <img src="assets/ plomarble_1.png" alt="스크린샷1" width="230" height="250" />
   <img src="assets/plomarble_2.png" alt="스크린샷2" width="230" height="250" />
   <img src="assets/plomarble__3.png" alt="스크린샷3" width="230" height="250" />
