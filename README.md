@@ -39,6 +39,7 @@
 - **Expo 기반 크로스플랫폼 앱 (iOS/Android)**
 - **zustand**를 활용한 경량 상태 관리
 - **Kakao Mobility 길찾기 API + OSRM API**를 활용한 보행자 길찾기 및 Polyline 시각화
+- **Codex-CLI** 와 명세기반 협업을 통한 props-driling 문제 해결
 
 ### 🔹 Inference
 - 여행 **코스 제목 임베딩 → 텍스트 유사도 스코어링**에 활용
