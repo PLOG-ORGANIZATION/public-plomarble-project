@@ -51,7 +51,6 @@
 - **Codex-CLI** 와 명세기반 협업을 통한 props-driling 문제 해결
 
 ### 🔹 Inference
-- 여행 **코스 제목 임베딩 → 텍스트 유사도 스코어링**에 활용
 - 추천 후보군 구성 과정에서 **lexical score / semantic score / 거리 기반 가중치**를 함께 조합해 결과를 보정
 
 ### 🔹 추천 구성 시 고민한 부분
