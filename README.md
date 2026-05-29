@@ -36,7 +36,10 @@
     - 단순 벡터 유사도만 사용하던 초기 방식에서, **정확한 텍스트 일치와 의미 유사도**를 함께 반영하는 구조로 개선  
   - **SSE 기반 snapshot 응답**  
   - 양방향 상시 통신보다 **서버 → 클라이언트 단방향 스트리밍**이 목적에 더 잘 맞는다고 판단해 SSE를 적용  
-  - 하나의 요청 안에서 snapshot 생성과 전송 흐름을 코루틴 단위로 분리해, **유연한 처리와 비교적 가벼운 실행 흐름**을 함께 가져가고자 함  
+  - embedding 생성, VectorDB 검색, lexical search처럼 외부 I/O 대기가 큰 recall 작업은 Coroutine `async`로 병렬화했습니다.
+  - recall 후보군은 semantic/vector search와 lexical search 결과를 merge하여 구성했습니다.
+  - reranking 단계는 `Channel` 기반 worker pool로 후보별 scoring task를 제한된 동시성 안에서 병렬 처리했습니다.
+  - scoring 결과는 단일 consumer가 수집하고, milestone마다 Top-K 후보와 하버사인 거리 가중치 기반 reranked 후보를 조합해 SSE snapshot으로 전달했습니다.
   - 앱에서는 이를 버퍼가 있는 것처럼 보이도록 구성해, 추천 결과가 정리되는 흐름을 자연스럽게 받아들일 수 있도록 설계  
     - 상위 결과는 고정하고, 하위 결과만 다른 조합으로 교체해 비교 가능한 코스 목록을 제공  
   - **가중치 기반 하위 목록 재구성**  
