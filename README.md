@@ -30,22 +30,14 @@
 ### 🔹 Server
 - **모놀리식 API 서비스 + 추천 서비스**를 Ingress로 라우팅
 - 한국관광공사 API 기반 **정형 데이터 획득 → 임베딩 벡터화 → Airflow DAG 자동화**
-- **실시간 추천 코스 목록 제공**
-  - **하이브리드 recall**  
-    - OpenSearch lexical recall + Milvus semantic recall을 함께 사용해 초기 후보군을 구성  
-    - 단순 벡터 유사도만 사용하던 초기 방식에서, **정확한 텍스트 일치와 의미 유사도**를 함께 반영하는 구조로 개선  
-  - **SSE 기반 snapshot 응답**  
-  - 양방향 상시 통신보다 **서버 → 클라이언트 단방향 스트리밍**이 목적에 더 잘 맞는다고 판단해 SSE를 적용  
-  - embedding 생성, VectorDB 검색, lexical search처럼 외부 I/O 대기가 큰 recall 작업은 Coroutine `async`로 병렬화했습니다.
-  - recall 후보군은 semantic/vector search와 lexical search 결과를 merge하여 구성했습니다.
-  - reranking 단계는 `Channel` 기반 worker pool로 후보별 scoring task를 제한된 동시성 안에서 병렬 처리했습니다.
-  - scoring 결과는 단일 consumer가 수집하고, milestone마다 Top-K 후보와 하버사인 거리 가중치 기반 reranked 후보를 조합해 SSE snapshot으로 전달했습니다.
+- **SSE 기반 실시간 추천 코스 스트리밍**
+  - OpenSearch 기반 lexical recall과 Milvus 기반 semantic recall을 병합해, 정확한 키워드 일치와 의미 유사도를 함께 반영한 후보군을 구성했습니다.
+  - embedding 생성, VectorDB 검색, lexical search는 외부 I/O 대기가 큰 작업이라고 판단해 Kotlin Coroutine `async`로 병렬 수행했습니다.
+  - reranking 단계는 `Channel` 기반 worker pool로 후보별 scoring task를 제한된 동시성 안에서 병렬 처리하고, 결과는 단일 consumer가 수집하도록 구성했습니다.
+  - milestone마다 Top-K anchor 후보와 하버사인 거리 가중치가 반영된 reranked 후보를 조합해 `Flow<StreamEvent>` 기반 SSE snapshot으로 전달했습니다.
+  - 상위 후보는 안정적인 anchor로 유지하고, 하위 후보는 후보 점수·anchor 점수·거리·주변 응집도를 반영해 snapshot마다 재구성했습니다.
   - 앱에서는 이를 버퍼가 있는 것처럼 보이도록 구성해, 추천 결과가 정리되는 흐름을 자연스럽게 받아들일 수 있도록 설계  
-    - 상위 결과는 고정하고, 하위 결과만 다른 조합으로 교체해 비교 가능한 코스 목록을 제공  
-  - **가중치 기반 하위 목록 재구성**  
-    - 상위 top-k를 anchor로 삼고, 하위 후보는 anchor 주변 관광지를 기준으로 재구성  
-    - **후보 자체 점수 + anchor 점수 + 거리 + 주변 응집도**를 함께 반영  
-    - 동일한 결과를 반복 노출하지 않도록 하위 후보군은 snapshot 간 중복을 줄이는 방향으로 구성
+
  
 ### 🔹 Client
 - **Expo 기반 크로스플랫폼 앱 (iOS/Android)**
