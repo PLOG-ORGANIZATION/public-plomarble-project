@@ -28,25 +28,29 @@
 ## 💻 주요 기능
 
 ### 🔹 Server
-- **모놀리식 API 서비스 + 추천 서비스**를 Ingress로 라우팅
-- 한국관광공사 API 기반 **정형 데이터 획득 → 임베딩 벡터화 → Airflow DAG 자동화**
-- **SSE 기반 실시간 추천 코스 스트리밍**
-  - OpenSearch 기반 lexical recall과 Milvus 기반 semantic recall을 병합해, 정확한 키워드 일치와 의미 유사도를 함께 반영한 후보군을 구성했습니다.
-  - embedding 생성, VectorDB 검색, lexical search는 외부 I/O 대기가 큰 작업이라고 판단해 Kotlin Coroutine `async`로 병렬 수행했습니다.
-  - reranking 단계는 `Channel` 기반 worker pool로 후보별 scoring task를 제한된 동시성 안에서 병렬 처리하고, 결과는 단일 consumer가 수집하도록 구성했습니다.
-  - milestone마다 Top-K anchor 후보와 하버사인 거리 가중치가 반영된 reranked 후보를 조합해 `Flow<StreamEvent>` 기반 SSE snapshot으로 전달했습니다.
-  - 상위 후보는 안정적인 anchor로 유지하고, 하위 후보는 후보 점수·anchor 점수·거리·주변 응집도를 반영해 snapshot마다 재구성했습니다.
-  - 앱에서는 이를 버퍼가 있는 것처럼 보이도록 구성해, 추천 결과가 정리되는 흐름을 자연스럽게 받아들일 수 있도록 설계  
 
- 
+- 모놀리식 API 서비스와 추천 서비스를 분리하고, Ingress를 통해 요청 경로별로 라우팅했습니다.
+- 한국관광공사 API 기반 정형 데이터를 수집하고, 임베딩 벡터화 및 적재 과정을 Airflow DAG로 자동화했습니다.
+- OpenSearch 기반 lexical recall과 Milvus 기반 semantic recall을 병합해, 키워드 일치와 의미 유사도를 함께 반영한 초기 후보군을 구성했습니다.
+- embedding 생성, VectorDB 검색, lexical search처럼 외부 I/O 대기가 큰 작업은 Kotlin Coroutine `async`로 병렬 수행했습니다.
+- reranking 단계는 `Channel` 기반 worker pool로 후보별 scoring task를 제한된 동시성 안에서 병렬 처리하고, 결과는 단일 consumer가 수집하도록 구성했습니다.
+- milestone마다 Top-K anchor 후보와 하버사인 거리 가중치가 반영된 reranked 후보를 조합해 `Flow<StreamEvent>` 기반 SSE snapshot으로 전달했습니다.
+- 상위 후보는 안정적인 anchor로 유지하고, 하위 후보는 후보 점수·anchor 점수·거리·주변 응집도를 반영해 snapshot마다 재구성했습니다.
+
 ### 🔹 Client
-- **Expo 기반 크로스플랫폼 앱 (iOS/Android)**
-- **zustand**를 활용한 경량 상태 관리
-- **Kakao Mobility 길찾기 API + OSRM API**를 활용한 보행자 길찾기 및 Polyline 시각화
-- **Codex-CLI** 와 명세기반 협업을 통한 props-driling 문제 해결
 
-### 🔹 Inference
-- 추천 후보군 구성 과정에서 **lexical score / semantic score / 거리 기반 가중치**를 함께 조합해 결과를 보정
+- Expo 기반 크로스플랫폼 앱으로 iOS/Android 환경을 지원했습니다.
+- `zustand`를 활용해 추천 결과, 경로 정보, 사용자 선택 상태를 경량 상태로 관리했습니다.
+- Kakao Mobility 길찾기 API와 OSRM API를 활용해 보행자 경로를 조회하고 Polyline으로 시각화했습니다.
+- SSE로 전달되는 snapshot을 버퍼링되는 추천 흐름처럼 표현해, 추천 결과가 단계적으로 정리되는 UX를 구성했습니다.
+- Codex-CLI와 명세 기반 협업을 활용해 props drilling 문제를 개선하고 컴포넌트 책임을 분리했습니다.
+
+### 🔹 Inference / Ranking
+
+- 추천 후보군 구성 과정에서 lexical score, semantic score, 거리 기반 가중치를 함께 조합해 결과를 보정했습니다.
+- 단일 벡터 검색만 사용할 경우 의미적으로는 유사하지만 사용자가 의도한 장소명이 상단에 오르지 않는 문제가 있어, lexical recall을 함께 사용해 명시적 검색어에 강한 구조로 개선했습니다.
+- 상위 Top-K 후보는 anchor로 고정하고, 하위 후보는 anchor 주변 관광지를 확장하는 방식으로 구성해 단순 유사도 나열을 피하고자 했습니다.
+- 하위 후보는 후보 자체 점수, anchor 점수, 거리, 주변 응집도를 반영해 snapshot 간 중복을 줄이는 방향으로 재구성했습니다.
 
 ### 🔹 추천 구성 시 고민한 부분
 - **정확도와 탐색성의 균형**
